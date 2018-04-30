@@ -1,0 +1,154 @@
+Message ID's:
+
+1 - Create a room
+
+To Server:
+packetLength
+messageID (1)
+mapLength
+map
+modeLength
+mode
+nameLength
+name
+
+To Client:
+packetLength
+messageID (1)
+result (int)
+	0 - success
+	1 - lobby name already exists
+
+
+2 - Join a room
+
+To Server:
+packetLength
+messageID (2)
+nameLength
+name
+
+To Client
+packetLength
+messageID (2)
+result (int)
+	0 - success
+	1 - room full
+	2 - room doesn't exist
+
+3 - Refresh room list
+
+To Server:
+packetLength
+messageID (3)
+
+To Client:
+packetLength
+messageID (3)
+numLobbies
+{
+mapLength
+map
+nameLength
+name
+modeLength
+mode
+hostLength
+host
+playersIn
+maxPlayers
+} this x numLobbies
+
+
+4 - Creating account
+
+To Server:
+packetLength
+messageID
+userLength
+username
+passLength
+password
+
+To Client
+packetLength
+messageID
+result (int)
+	0 - success
+	1 - name taken
+	2 - bad password
+	3 - server error
+
+5 - Logging in
+
+To Server:
+packetLength
+messageID
+userLength
+username
+passLength
+password
+
+To Client
+packetLength
+messageID
+result (int)
+	0 - success
+	1 - invalid credentials
+	2 - server error
+
+6 - Leave a room
+
+To Server:
+packetLength
+messageID
+
+To Client:
+packetLength
+messageID
+result
+	0 - success
+	1 - failure (not sure why it would fail...)
+
+
+7 - Log out
+
+To Server:
+packetLength
+messageID
+
+To Client:
+packetLength
+messageID
+result
+	0 - success
+	1 - failure (not sure why it would fail...)
+
+8 - Host has left / Booted from room
+
+To Client:
+packetLength
+messageID
+result
+	0 - host left room
+	1 - connection error
+	2 - kicked (not actually implemented)
+
+9 - Create Account (Between Server and Auth. Server)
+
+(See other document)
+
+10 - Login (Between Server and Auth. Server)
+
+(See other document)
+
+11 - Someone has joined/left
+
+To Client:
+packetLength
+messageID
+userLength
+username
+result
+	0 - user joined
+	1 - user left

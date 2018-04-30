@@ -1,0 +1,52 @@
+In relation to Auth Server:
+
+Create User:
+
+To:
+
+packetLength
+packetID (9)
+userSocket
+nameLength
+username
+passLength
+password
+
+From:
+
+packetLength
+packetID (9)
+userSocket
+result (int)
+userLength
+username
+
+0 - success
+1 - name taken
+2 - bad password
+3 - server error
+
+Login:
+
+To:
+
+packetLength
+packetID (10)
+userSocket
+nameLength
+username
+passLength
+password
+
+From:
+
+packetLength
+packetID (10)
+userSocket
+result (int)
+userLength
+username
+
+0 - success
+1 - invalid credentials
+2 - server error
